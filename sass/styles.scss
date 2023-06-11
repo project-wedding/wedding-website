@@ -261,6 +261,16 @@ Hero
 
   // Large devices (desktops, less than 1200px)
   @media (max-width: 1199.98px) {
+    background: url('../img/hero-min.jpg') 80% center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
     min-height: 500px;
     background: url('../img/hero-min.jpg') 80% center;
     -webkit-background-size: cover;
