@@ -259,6 +259,16 @@ Hero
   background-size: cover;
   position: relative;
 
+  // Large devices (desktops, less than 1200px)
+  @media (max-width: 1199.98px) {
+    background: url('../img/hero-min.jpg') 80% center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+  }
+
   /*.rsvp-btn {
     position: absolute;
     bottom: 100px;
