@@ -277,7 +277,9 @@ $(document).ready(function () {
         $('#invite-code-form').toggle();
         $('#invite_code').val(inviteCode);
 
-        if (inviteCodeCheckSum === 'd21dd277d3db3811fb48ec9e585845a6') {
+        if (inviteCodeCheckSum === 'eeff71cb5b00b7bd04cbc5d399e5cc5d') {
+            $('#celebration_nr_persons').prop('required', false);
+        } else if (inviteCodeCheckSum === 'd21dd277d3db3811fb48ec9e585845a6') {
             // show celebration form parts
             $('#aperitif_comment_input').toggle();
             $('#celebration').toggle();
