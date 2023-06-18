@@ -286,6 +286,45 @@ $(document).ready(function () {
         }
     }
 
+    /********************** Presents **********************/
+    $('#present_modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var title = button.data('title'); // Extract info from data-* attributes
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        modal.find('#present_modal_title').text('Hochzeitsgeschenk: ' + title);
+        modal.find('#present_form_present').val(title);
+        modal.find('#present_form_name').val('');
+        modal.find('#present_form_last_name').val('');
+        modal.find('#present_form_email').val('');
+        modal.find('#present_form_amount').val('');
+    })
+
+    $('#present-form').on('submit', function (e) {
+        e.preventDefault();
+        var data = $(this).serialize();
+
+        $('#alert-wrapper-modal').html(alert_markup('info', '<strong>Bitte warten.</strong> Das Formular wird gesendet...'));
+
+        $.post('https://script.google.com/macros/s/AKfycbydOEqtn8-VqiEFKnGuCdcMEck9dCIAVpaHUZSpVpLnuGj_e4RxKoBdnm1cnodEpq9hBg/exec', data)
+            .done(function (data) {
+                console.log(data);
+                if (data.result === "error") {
+                    $('#alert-wrapper-modal').html(alert_markup('danger', data.message));
+                } else {
+                    $('#alert-wrapper-modal').html('');
+                    $('#present_modal').modal('hide');
+                    // TODO show thank you modal
+                    // TODO send email with bank credentials
+                    //$('#rsvp-modal').modal('show');
+                }
+            })
+            .fail(function (data) {
+                console.log(data);
+                $('#alert-wrapper-modal').html(alert_markup('danger', '<strong>Hoppla!</strong> Es besteht ein Problem mit dem Server.'));
+            });
+    });
+
 });
 
 /********************** Extras **********************/
