@@ -298,6 +298,7 @@ $(document).ready(function () {
         modal.find('#present_form_last_name').val('');
         modal.find('#present_form_email').val('');
         modal.find('#present_form_amount').val('');
+        modal.find('#present_form_comment').val('');
     })
 
     $('#present-form').on('submit', function (e) {
@@ -314,9 +315,7 @@ $(document).ready(function () {
                 } else {
                     $('#alert-wrapper-modal').html('');
                     $('#present_modal').modal('hide');
-                    // TODO show thank you modal
-                    // TODO send email with bank credentials
-                    //$('#rsvp-modal').modal('show');
+                    $('#present-thanks-modal').modal('show');
                 }
             })
             .fail(function (data) {
