@@ -137,6 +137,7 @@ $(document).ready(function () {
     });
 
     /********************** Social Share buttons ***********************/
+    /*
     var share_bar = document.getElementsByClassName('share-bar');
     var po = document.createElement('script');
     po.type = 'text/javascript';
@@ -160,6 +161,7 @@ $(document).ready(function () {
         share_bar[i].innerHTML = html;
         share_bar[i].style.display = 'inline-block';
     }
+     */
 
     /********************** Embed youtube video *********************/
     $('.player').YTPlayer();
@@ -184,23 +186,24 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Hochzeit Ramona & Micha",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Sep 07, 2023 14:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Sep 07, 2023 23:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'Biohof Zug, Artherstrasse 59, 6300 Zug',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "Wir freuen uns darauf, dich an unserem grossen Tag begrüssen zu dürfen. " +
+                "Alle Anfragen oder Unklarheiten bitte an folgende E-Mail: wedding.ramona.micha@gmail.com"
         }
     });
 
@@ -212,13 +215,13 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Bitte warten.</strong> Das Formular wird gesendet...'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
+        if (MD5($('#invite_code').val()) !== 'eeff71cb5b00b7bd04cbc5d399e5cc5d'
+            && MD5($('#invite_code').val()) !== 'eeff71cb5b00b7bd04cbc5d399e5cc5d') {
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Hoppla!</strong> Dein Einladungs-Code ist falsch.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycby22SVve-x0dSC1nZxCgMh2aSg3dW-BlKFJry2zDgmHrExP2sW9x8DxRnt867VST6a2Zw/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
@@ -230,7 +233,7 @@ $(document).ready(function () {
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Hoppla!</strong> Es besteht ein Problem mit dem Server.'));
                 });
         }
     });
@@ -382,12 +385,10 @@ var MD5 = function (string) {
 
             if (c < 128) {
                 utftext += String.fromCharCode(c);
-            }
-            else if ((c > 127) && (c < 2048)) {
+            } else if ((c > 127) && (c < 2048)) {
                 utftext += String.fromCharCode((c >> 6) | 192);
                 utftext += String.fromCharCode((c & 63) | 128);
-            }
-            else {
+            } else {
                 utftext += String.fromCharCode((c >> 12) | 224);
                 utftext += String.fromCharCode(((c >> 6) & 63) | 128);
                 utftext += String.fromCharCode((c & 63) | 128);
