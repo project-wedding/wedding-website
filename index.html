@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -465,9 +465,29 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h3>Anmeldung</h3>
-                <p>Anmeldeschluss ist der 31.05.2024. </p>
-                <p>Zur Trauung und zum anschliessenden Apéro sind alle herzlich Willkommen, der Abend wird ohne Kinder durchgeführt.</p>
-                <form id="rsvp-form" class="rsvp-form"
+                <p>Anmeldeschluss ist der 31.05.2024.</p>
+                <p>Zur Trauung und zum anschliessenden Apéro sind alle herzlich Willkommen, die Feier wird ohne Kinder durchgeführt.</p>
+                <form id="invite-code-form" class="rsvp-form"
+                      action=""
+                      method="POST">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input type="number" name="invite_code_activate" id="invite_code_activate"
+                                                                class="" min="0"
+                                                                placeholder="Einladungs-Code"
+                                                                required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper-code"></div>
+                    </div>
+                    <button class="btn-fill rsvp-btn">
+                        Formular anzeigen
+                    </button>
+                </form>
+                <form id="rsvp-form" class="rsvp-form toggle-form"
                       action=""
                       method="POST">
                     <div class="row">
@@ -493,16 +513,65 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="number_of_persons" class="" min="0"
-                                                                  max="10"
-                                                                  placeholder="Anzahl Personen"
-                                                                  required>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Hochzeit & Apéro</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-users"></i><input type="number" name="aperitif_nr_persons" class="" min="0"
+                                                                          max="10"
+                                                                          placeholder="Anzahl Erwachsene"
+                                                                          required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-users"></i><input type="number" name="aperitif_nr_childs" class="" min="0"
+                                                                          max="10"
+                                                                          placeholder="Anzahl Kinder"
+                                                                          required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12" id="aperitif_comment_input">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-commenting"></i><input type="text" name="aperitif_comment" class=""
+                                                                               placeholder="Wichtige Infos & Allergien">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                    </div>
+                    <div class="panel panel-default toggle-form" id="celebration">
+                        <div class="panel-heading">Feier</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-users"></i><input type="number" name="celebration_nr_persons" class="" min="0"
+                                                                          max="10"
+                                                                          placeholder="Anzahl Erwachsene"
+                                                                          required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-users"></i><input type="number" name="celebration_nr_vegetarian" class="" min="0"
+                                                                          max="10"
+                                                                          placeholder="Davon Vegetarisch">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-input-group">
+                                        <i class="fa fa-commenting"></i><input type="text" name="celebration_comment" class=""
+                                                                               placeholder="Wichtige Infos & Allergien">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
                             <div class="form-input-group">
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
                                                                 class="" min="0"

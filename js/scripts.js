@@ -211,6 +211,26 @@ $(document).ready(function () {
 
 
     /********************** RSVP **********************/
+    $(function () {
+        var name = "inviteCode"
+        var inviteCodeParam;
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null) {
+            inviteCodeParam = null;
+        } else {
+            inviteCodeParam = decodeURI(results[1]) || 0
+        }
+
+        if (inviteCodeParam) {
+            initInviteCodeForm(inviteCodeParam);
+        }
+    });
+
+    $('#invite-code-form').on('submit', function (e) {
+        e.preventDefault();
+        checkInviteCodeFormAndToggle();
+    });
+
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
@@ -218,7 +238,7 @@ $(document).ready(function () {
         $('#alert-wrapper').html(alert_markup('info', '<strong>Bitte warten.</strong> Das Formular wird gesendet...'));
 
         if (MD5($('#invite_code').val()) !== 'eeff71cb5b00b7bd04cbc5d399e5cc5d'
-            && MD5($('#invite_code').val()) !== 'eeff71cb5b00b7bd04cbc5d399e5cc5d') {
+            && MD5($('#invite_code').val()) !== 'd21dd277d3db3811fb48ec9e585845a6') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Hoppla!</strong> Dein Einladungs-Code ist falsch.'));
         } else {
             $.post('https://script.google.com/macros/s/AKfycby22SVve-x0dSC1nZxCgMh2aSg3dW-BlKFJry2zDgmHrExP2sW9x8DxRnt867VST6a2Zw/exec', data)
@@ -237,6 +257,32 @@ $(document).ready(function () {
                 });
         }
     });
+
+    function initInviteCodeForm(inviteCode) {
+        $('#invite_code_activate').val(inviteCode);
+        checkInviteCodeFormAndToggle();
+    }
+
+    function checkInviteCodeFormAndToggle() {
+        var inviteCode = $('#invite_code_activate').val();
+        var inviteCodeCheckSum = MD5(inviteCode);
+
+        if (inviteCodeCheckSum !== 'eeff71cb5b00b7bd04cbc5d399e5cc5d'
+            && inviteCodeCheckSum !== 'd21dd277d3db3811fb48ec9e585845a6') {
+            $('#alert-wrapper-code').html(alert_markup('danger', '<strong>Hoppla!</strong> Dein Einladungs-Code ist falsch.'));
+            return;
+        }
+
+        $('#rsvp-form').toggle();
+        $('#invite-code-form').toggle();
+        $('#invite_code').val(inviteCode);
+
+        if (inviteCodeCheckSum === 'd21dd277d3db3811fb48ec9e585845a6') {
+            // show celebration form parts
+            $('#aperitif_comment_input').toggle();
+            $('#celebration').toggle();
+        }
+    }
 
 });
 
