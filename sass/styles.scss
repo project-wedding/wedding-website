@@ -888,8 +888,24 @@ RSVP form
       margin-bottom: 10px;
 
       .panel-body {
-        padding-bottom: 5px;
+        padding: 10px;
       }
+    }
+    textarea {
+      border: solid 1px #e6e9ea;
+      box-shadow: none;
+    }
+    textarea::-webkit-input-placeholder {
+      color: $form-placeholder;
+    }
+    textarea:-moz-placeholder {
+      color: $form-placeholder;
+    }
+    textarea::-moz-placeholder {
+      color: $form-placeholder;
+    }
+    textarea:-ms-input-placeholder {
+      color: $form-placeholder;
     }
   }
 }
@@ -944,10 +960,6 @@ Presents
 }
 
 .modal {
-  textarea {
-    border: solid 1px #e6e9ea;
-  }
-
   .modal-alert {
     .alert {
       margin-top: 15px;

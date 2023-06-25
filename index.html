@@ -534,15 +534,11 @@
                                     <div class="form-input-group">
                                         <i class="fa fa-users"></i><input type="number" name="aperitif_nr_childs" class="" min="0"
                                                                           max="10"
-                                                                          placeholder="Anzahl Kinder"
-                                                                          required>
+                                                                          placeholder="Anzahl Kinder">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12" id="aperitif_comment_input">
-                                    <div class="form-input-group">
-                                        <i class="fa fa-commenting"></i><input type="text" name="aperitif_comment" class=""
-                                                                               placeholder="Wichtige Infos & Allergien">
-                                    </div>
+                                    <textarea class="form-control" name="aperitif_comment" placeholder="Wichtige Infos & Allergien"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -555,7 +551,8 @@
                                     <div class="form-input-group">
                                         <i class="fa fa-users"></i><input type="number" name="celebration_nr_persons" id="celebration_nr_persons" class="" min="0"
                                                                           max="10"
-                                                                          placeholder="Anzahl Erwachsene">
+                                                                          placeholder="Anzahl Erwachsene"
+                                                                          required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -566,10 +563,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <div class="form-input-group">
-                                        <i class="fa fa-commenting"></i><input type="text" name="celebration_comment" class=""
-                                                                               placeholder="Wichtige Infos & Allergien">
-                                    </div>
+                                    <textarea class="form-control" name="celebration_comment" placeholder="Wichtige Infos & Allergien"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -775,7 +769,8 @@
                             <div class="form-input-group">
                                 <i class="fa fa-gift"></i><input type="number" name="amount" id="present_form_amount"
                                                                  class="" min="0"
-                                                                 placeholder="Betrag">
+                                                                 placeholder="Betrag"
+                                                                 required>
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12">
