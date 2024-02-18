@@ -162,10 +162,10 @@ Animations
 /* ==========================================================================
 Waypoinsts
 ========================================================================== */
-.wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9 {
+.wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9, .wp10, .wp11 {
   visibility: hidden
 }
-.wp8, .wp9 {
+.wp8, {
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s
 }
@@ -591,6 +591,26 @@ Features-stack
 }
 
 /* ==========================================================================
+.location-infos
+========================================================================== */
+.location-infos {
+  .leftcol {
+    padding-right: 100px;
+    border-right: solid 1px $keyline-color;
+  }
+  .rightcol {
+    padding-left: 100px;
+  }
+
+  .time {
+    font-size: 13px;
+    font-style: italic;
+    text-transform: lowercase;
+    color: $txt-primary;
+  }
+}
+
+/* ==========================================================================
 .blog
 ========================================================================== */
 .blog {
@@ -745,7 +765,7 @@ Engagement Pics
 
   // Small devices (landscape phones, less than 768px)
   @media (min-width: 767.98px) {
-    .col-md-2 {
+    .col-md-3 {
       .row {
         .col-md-12:not(:last-child) {
           margin-bottom: calc(100% / 16);
@@ -960,6 +980,9 @@ Presents
 .thumbnail {
   .progress-label {
     padding-bottom: 5px;
+  }
+  .no-progress-bar {
+    margin-bottom: 20px;
   }
 }
 
