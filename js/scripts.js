@@ -324,7 +324,7 @@ $(document).ready(function () {
 
         $('#alert-wrapper-modal').html(alert_markup('info', '<strong>Bitte warten.</strong> Das Formular wird gesendet...'));
 
-        $.post('https://script.google.com/macros/s/AKfycbydOEqtn8-VqiEFKnGuCdcMEck9dCIAVpaHUZSpVpLnuGj_e4RxKoBdnm1cnodEpq9hBg/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycbw6rd5SfGjpBRqOLbN8OYWmsssU_c-a83xVS3JuyiqfZdhM1ws3O5Lrhc0Bl_n3TfZVAQ/exec', data)
             .done(function (data) {
                 console.log(data);
                 if (data.result === "error") {
