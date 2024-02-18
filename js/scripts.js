@@ -48,12 +48,17 @@ $(document).ready(function () {
         offset: '75%'
     });
     $('.wp10').waypoint(function () {
-        $('.wp10').addClass('animated fadeInLeft');
+        $('.wp10').addClass('animated fadeInRight');
     }, {
         offset: '75%'
     });
     $('.wp11').waypoint(function () {
-        $('.wp11').addClass('animated fadeInRight');
+        $('.wp11').addClass('animated fadeInLeft');
+    }, {
+        offset: '75%'
+    });
+    $('.wp12').waypoint(function () {
+        $('.wp12').addClass('animated fadeInRight');
     }, {
         offset: '75%'
     });
