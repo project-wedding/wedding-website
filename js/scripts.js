@@ -178,6 +178,7 @@ $(document).ready(function () {
 
 
     /********************** Toggle Map Content **********************/
+    /*
     $('#btn-show-map').click(function () {
         $('#map-content').toggleClass('toggle-map-content');
         $('#btn-show-content').toggleClass('toggle-map-content');
@@ -186,6 +187,7 @@ $(document).ready(function () {
         $('#map-content').toggleClass('toggle-map-content');
         $('#btn-show-content').toggleClass('toggle-map-content');
     });
+     */
 
     /********************** Add to Calendar **********************/
     var myCalendar = createCalendar({
@@ -339,6 +341,7 @@ $(document).ready(function () {
 /********************** Extras **********************/
 
 // Google map
+/*
 function initMap() {
     var location = {lat: 47.15378031548116, lng: 8.511457308708376};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -352,6 +355,7 @@ function initMap() {
         map: map
     });
 }
+ */
 
 /*
 function initBBSRMap() {
