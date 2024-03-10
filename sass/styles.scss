@@ -298,7 +298,7 @@ Hero
 
   // Large devices (desktops, less than 1200px)
   @media (max-width: 1199.98px) {
-    background: url('../img/hero-min.jpg') 80% center;
+    background: url('../img/hero-min.jpg') center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -309,7 +309,7 @@ Hero
   // Small devices (landscape phones, less than 768px)
   @media (max-width: 767.98px) {
     min-height: 500px;
-    background: url('../img/hero-min.jpg') 80% center;
+    background: url('../img/hero-min.jpg') center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -317,11 +317,10 @@ Hero
     position: relative;
   }
 
-  /*.rsvp-btn {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-  }*/
+  .rsvp-btn {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
   .down-arrow a {
     color: $txt-light;
   }
