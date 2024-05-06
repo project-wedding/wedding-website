@@ -203,7 +203,7 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Hochzeit Ramona & Micha",
+            title: "Hochzeit Ramona und Micha",
 
             // Event start date
             start: new Date('Sep 07, 2024 16:00'),
@@ -232,7 +232,7 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Hochzeit Ramona & Micha",
+            title: "Hochzeit Ramona und Micha",
 
             // Event start date
             start: new Date('Sep 07, 2024 16:00'),
