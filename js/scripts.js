@@ -195,7 +195,7 @@ $(document).ready(function () {
      */
 
     /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
+    var calendarWedding = createCalendar({
         options: {
             class: '',
             // You can pass an ID. If you don't, one will be generated for you
@@ -206,26 +206,52 @@ $(document).ready(function () {
             title: "Hochzeit Ramona & Micha",
 
             // Event start date
-            start: new Date('Sep 07, 2023 14:00'),
+            start: new Date('Sep 07, 2024 16:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Sep 07, 2023 23:00'),
+            end: new Date('Sep 07, 2024 18:30'),
 
             // Event Address
             address: 'Biohof Zug, Artherstrasse 59, 6300 Zug',
 
             // Event Description
             description: "Wir freuen uns darauf, dich an unserem grossen Tag begrüssen zu dürfen. " +
-                "Alle Anfragen oder Unklarheiten bitte an folgende E-Mail: wedding.ramona.micha@gmail.com"
+                "Alle Anfragen oder Unklarheiten bitte an folgende E-Mail: trauzeugen.ramona.micha@gmail.com"
         }
     });
 
-    $('#add-to-cal').html(myCalendar);
+    var calendarWeddingAndCelebration = createCalendar({
+        options: {
+            class: '',
+            // You can pass an ID. If you don't, one will be generated for you
+            id: ''
+        },
+        data: {
+            // Event title
+            title: "Hochzeit Ramona & Micha",
 
+            // Event start date
+            start: new Date('Sep 07, 2024 16:00'),
+
+            // Event duration (IN MINUTES)
+            // duration: 120,
+
+            // You can also choose to set an end time
+            // If an end time is set, this will take precedence over duration
+            end: new Date('Sep 07, 2024 24:00'),
+
+            // Event Address
+            address: 'Biohof Zug, Artherstrasse 59, 6300 Zug',
+
+            // Event Description
+            description: "Wir freuen uns darauf, dich an unserem grossen Tag begrüssen zu dürfen. " +
+                "Alle Anfragen oder Unklarheiten bitte an folgende E-Mail: trauzeugen.ramona.micha@gmail.com"
+        }
+    });
 
     /********************** RSVP **********************/
     $(function () {
@@ -296,10 +322,14 @@ $(document).ready(function () {
 
         if (inviteCodeCheckSum === 'eeff71cb5b00b7bd04cbc5d399e5cc5d') {
             $('#celebration_nr_persons').prop('required', false);
+
+            $('#add-to-cal').html(calendarWedding);
         } else if (inviteCodeCheckSum === 'd21dd277d3db3811fb48ec9e585845a6') {
             // show celebration form parts
             $('#aperitif_comment_input').toggle();
             $('#celebration').toggle();
+
+            $('#add-to-cal').html(calendarWeddingAndCelebration);
         }
     }
 
